@@ -1,3 +1,8 @@
 # CyberChef-Recipes
 
 Repository of useful CyberChef recipes
+
+
+#Extracting IP and port from meterpreter powershell payload:
+
+{"op":"Regular expression","args":["User defined","[a-zA-Z0-9=/+]{30,}",true,true,false,false,false,false,"List matches"]},{"op":"From Base64","args":["A-Za-z0-9+/=",true]},{"op":"Gunzip","args":[]},{"op":"Regular expression","args":["User defined","[a-zA-Z0-9=/+]{30,}",true,true,false,false,false,false,"List matches"]},{"op":"From Base64","args":["A-Za-z0-9+/=",true]},{"op":"To Hex","args":["None"]},{"op":"Conditional Jump","args":["68([0-9a-f]{8})680200([0-9a-f]{4})",false,"standard",10]},{"op":"Conditional Jump","args":["49bc0200([0-9a-f]{4})([0-9a-f]{8})",false,"reverse",10]},{"op":"Label","args":["standard"]},{"op":"Regular expression","args":["User defined","68([0-9a-f]{8})680200([0-9a-f]{4})",true,true,false,false,false,false,"List capture groups"]},{"op":"Split","args":["\\n",":"]},{"op":"Subsection","args":[":([0-9a-f]{4})$",true,true,false]},{"op":"From Base","args":[16]},{"op":"Merge","args":[]},{"op":"Subsection","args":["^([0-9a-f]{8}):",true,true,false]},{"op":"From Hex","args":["Auto"]},{"op":"To Decimal","args":["Space",false]},{"op":"Split","args":[" ","."]},{"op":"Jump","args":["finish",10]},{"op":"Label","args":["reverse"]},{"op":"Regular expression","args":["User defined","49bc0200([0-9a-f]{4})([0-9a-f]{8})",true,true,false,false,false,false,"List capture groups"]},{"op":"Split","args":["\\n",":"]},{"op":"Subsection","args":[":([0-9a-f]{8})$",true,true,false]},{"op":"From Hex","args":["Auto"]},{"op":"To Decimal","args":["Space",false]},{"op":"Split","args":[" ","."]},{"op":"Subsection","args":["^([0-9a-f]{4}):",true,true,false]},{"op":"From Base","args":[16]},{"op":"Label","args":["finish"]}]
